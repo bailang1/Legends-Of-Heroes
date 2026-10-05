@@ -123,7 +123,8 @@ namespace ET.Client
         {
             root.GetComponent<UIComponent>().HideWindow(WindowID.WindowID_HotUpdate);
             root.GetComponent<UIComponent>().CloseAllWindow();
-            await root.GetComponent<UIComponent>().ShowWindowAsync(WindowID.WindowID_Login);
+            // await root.GetComponent<UIComponent>().ShowWindowAsync(WindowID.WindowID_Login);
+            // Log.Error("test");
             // 只是资源更新就直接进入游戏。
             await EventSystem.Instance.PublishAsync(root, new AppStartInitFinish());
         }
