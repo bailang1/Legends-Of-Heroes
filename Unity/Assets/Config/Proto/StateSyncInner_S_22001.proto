@@ -83,3 +83,46 @@ message G2Match_StateSyncRefreshMatch // IResponse
 	int32 Error = 2;
 	string Message = 3;
 }
+
+
+// ResponseType Match2G_CancelMatch
+message G2Match_CancelMatch // IRequest
+{
+	int32 RpcId = 1;
+	int64 PlayerId = 2;
+}
+
+
+// ResponseType Match2G_CreateRoom
+message G2Match_CreateRoom // IRequest
+{
+	int32 RpcId = 1;
+	int64 PlayerId = 2;
+	string RoomName = 3;
+	RoomMode Mode = 4;
+	int32 MaxPlayers = 5;
+	string Password = 6;
+}
+
+// ResponseType Match2G_GetRoomList
+message G2Match_GetRoomList // IRequest
+{
+	int32 RpcId = 1;
+	RoomMode Mode = 2;
+}
+
+// ResponseType Match2G_JoinRoom
+message G2Match_JoinRoom // IRequest
+{
+	int32 RpcId = 1;
+	int64 PlayerId = 2;
+	int64 RoomId = 3;
+	string Password = 4;
+}
+
+// ResponseType Match2G_LeaveRoom
+message G2Match_LeaveRoom // IRequest
+{
+	int32 RpcId = 1;
+	int64 PlayerId = 2;
+}

@@ -353,6 +353,180 @@ namespace ET
         }
     }
 
+    [MemoryPackable]
+    [Message(StateSyncInner.G2Match_CancelMatch)]
+    [ResponseType(nameof(Match2G_CancelMatch))]
+    public partial class G2Match_CancelMatch : MessageObject, IRequest
+    {
+        public static G2Match_CancelMatch Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(G2Match_CancelMatch), isFromPool) as G2Match_CancelMatch;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        [MemoryPackOrder(1)]
+        public long PlayerId { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.PlayerId = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(StateSyncInner.G2Match_CreateRoom)]
+    [ResponseType(nameof(Match2G_CreateRoom))]
+    public partial class G2Match_CreateRoom : MessageObject, IRequest
+    {
+        public static G2Match_CreateRoom Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(G2Match_CreateRoom), isFromPool) as G2Match_CreateRoom;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        [MemoryPackOrder(1)]
+        public long PlayerId { get; set; }
+
+        [MemoryPackOrder(2)]
+        public string RoomName { get; set; }
+
+        [MemoryPackOrder(3)]
+        public RoomMode Mode { get; set; }
+
+        [MemoryPackOrder(4)]
+        public int MaxPlayers { get; set; }
+
+        [MemoryPackOrder(5)]
+        public string Password { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.PlayerId = default;
+            this.RoomName = default;
+            this.Mode = default;
+            this.MaxPlayers = default;
+            this.Password = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(StateSyncInner.G2Match_GetRoomList)]
+    [ResponseType(nameof(Match2G_GetRoomList))]
+    public partial class G2Match_GetRoomList : MessageObject, IRequest
+    {
+        public static G2Match_GetRoomList Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(G2Match_GetRoomList), isFromPool) as G2Match_GetRoomList;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        [MemoryPackOrder(1)]
+        public RoomMode Mode { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.Mode = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(StateSyncInner.G2Match_JoinRoom)]
+    [ResponseType(nameof(Match2G_JoinRoom))]
+    public partial class G2Match_JoinRoom : MessageObject, IRequest
+    {
+        public static G2Match_JoinRoom Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(G2Match_JoinRoom), isFromPool) as G2Match_JoinRoom;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        [MemoryPackOrder(1)]
+        public long PlayerId { get; set; }
+
+        [MemoryPackOrder(2)]
+        public long RoomId { get; set; }
+
+        [MemoryPackOrder(3)]
+        public string Password { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.PlayerId = default;
+            this.RoomId = default;
+            this.Password = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(StateSyncInner.G2Match_LeaveRoom)]
+    [ResponseType(nameof(Match2G_LeaveRoom))]
+    public partial class G2Match_LeaveRoom : MessageObject, IRequest
+    {
+        public static G2Match_LeaveRoom Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(G2Match_LeaveRoom), isFromPool) as G2Match_LeaveRoom;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        [MemoryPackOrder(1)]
+        public long PlayerId { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.PlayerId = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
     public static class StateSyncInner
     {
         public const ushort G2Match_StateSyncMatch = 22002;
@@ -365,5 +539,10 @@ namespace ET
         public const ushort Room2RoomManager_StateSyncInit = 22009;
         public const ushort Match2G_StateSyncRefreshMatch = 22010;
         public const ushort G2Match_StateSyncRefreshMatch = 22011;
+        public const ushort G2Match_CancelMatch = 22012;
+        public const ushort G2Match_CreateRoom = 22013;
+        public const ushort G2Match_GetRoomList = 22014;
+        public const ushort G2Match_JoinRoom = 22015;
+        public const ushort G2Match_LeaveRoom = 22016;
     }
 }
