@@ -32,7 +32,7 @@ namespace ET.Client
             
 			Replay replay = MemoryPackHelper.Deserialize(typeof (Replay), bytes, 0, bytes.Length) as Replay;
 			Log.Debug($"start replay: {replay.Snapshots.Count} {replay.FrameInputs.Count} {replay.UnitInfos.Count}");
-			LSSceneChangeHelper.SceneChangeToReplay(self.Root(), replay).Coroutine();
+			// LSSceneChangeHelper.SceneChangeToReplay(self.Root(), replay).Coroutine();
 		}
 
 	}

@@ -5,7 +5,7 @@
     {
         protected override async ETTask Run(Scene scene, SceneChangeFinish args)
         {
-             scene.GetComponent<UIComponent>().ShowWindow(WindowID.WindowID_Battle);
+             scene.GetComponent<UIComponent>().ShowWindow(WindowID.WindowID_Main);
              scene.AddComponent<CameraComponent>();
              await ETTask.CompletedTask;
         }

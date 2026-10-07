@@ -5,7 +5,12 @@
     {
         protected override async ETTask Run(Scene scene, LoginFinish args)
         {
-            await scene.GetComponent<UIComponent>().ShowWindowAsync(WindowID.WindowID_Lobby);
+            // await scene.GetComponent<UIComponent>().ShowWindowAsync(WindowID.WindowID_Lobby);
+            
+            // Scene root = self.Root();
+            await EnterMapHelper.EnterMapAsync(scene);
+            // scene.GetComponent<UIComponent>().CloseWindow(WindowID.WindowID_Lobby);
+            
             await ETTask.CompletedTask;
         }
     }
