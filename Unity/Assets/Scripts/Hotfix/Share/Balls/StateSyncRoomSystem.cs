@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using ET.Server;
 
 namespace ET
 {
@@ -13,15 +14,16 @@ namespace ET
             return entity.IScene as StateSyncRoom;
         }
         
-        public static void Init(this StateSyncRoom self, List<UnitInfo> unitInfos, long startTime, int frame = -1)
-        {
-            self.StartTime = startTime;
-            for (int i = 0; i < unitInfos.Count; ++i)
-            {
-                UnitInfo unitInfo = unitInfos[i];
-                self.PlayerIds.Add(unitInfo.UnitId);
-            }
-        }
+        // public static void Init(this StateSyncRoom self, List<UnitInfo> unitInfos, long startTime, int frame = -1)
+        // {
+        //     self.StartTime = startTime;
+        //     for (int i = 0; i < unitInfos.Count; ++i)
+        //     {
+        //         UnitInfo unitInfo = unitInfos[i];
+        //         self.PlayerIds.Add(unitInfo.UnitId);
+        //     }
+        // }
+       
 
         [EntitySystem]
         public static void Awake(this StateSyncRoom self)

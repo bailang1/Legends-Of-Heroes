@@ -5,8 +5,17 @@ namespace ET
     public struct SceneChangeStart
     {
     }
-    
+
     public struct SceneChangeFinish
+    {
+    }
+
+    public struct BattleSceneChangeStart
+    {
+        public string mapName;
+    }
+
+    public struct BattleSceneChangeFinish
     {
     }
     
@@ -37,6 +46,10 @@ namespace ET
     public struct AfterMyUnitCreate
     {
         public Unit unit;
+    }
+    public struct AfterBattleUnitCreate
+    {
+        public Unit Unit;
     }
 
     public struct OnCollisionContact

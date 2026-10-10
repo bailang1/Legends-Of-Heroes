@@ -8,17 +8,17 @@ namespace ET.Server
             // 广播的消息不能被池回收
             (message as MessageObject).IsFromPool = false;
 
-            StateSyncRoomServerComponent roomServerComponent = room.GetComponent<StateSyncRoomServerComponent>();
-
+            BattleComponent battleComponent = room.GetComponent<BattleComponent>();
+            var unitComponent = battleComponent.GetComponent<UnitComponent>();
             MessageLocationSenderComponent messageLocationSenderComponent = room.Root().GetComponent<MessageLocationSenderComponent>();
-            foreach (var kv in roomServerComponent.Children)
+            foreach (var kv in unitComponent.Children)
             {
-                StateSyncRoomPlayer roomPlayer = kv.Value as StateSyncRoomPlayer;
+                Unit roomPlayer = kv.Value as Unit;
 
-                if (!roomPlayer.IsOnline)
-                {
-                    continue;
-                }
+                // if (!roomPlayer.IsOnline)
+                // {
+                //     continue;
+                // }
                 
                 messageLocationSenderComponent.Get(LocationType.GateSession).Send(roomPlayer.Id, message);
             }

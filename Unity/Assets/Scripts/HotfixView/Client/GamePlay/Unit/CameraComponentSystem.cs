@@ -22,7 +22,6 @@ namespace ET.Client
         [EntitySystem]
         private static void LateUpdate(this CameraComponent self)
         {
-
             // 摄像机每帧更新位置
             self.UpdatePosition();
         }
@@ -30,11 +29,11 @@ namespace ET.Client
 
         private static void UpdatePosition(this CameraComponent self)
         {
-            Unit unit = UnitHelper.GetMyUnitFromCurrentScene(self.Root().CurrentScene());
-            if (unit != null)
-            {
-                self.MainCamera.transform.position = math.lerp(self.MainCamera.transform.position, unit.Position + new float3(0, 10, 0), Time.deltaTime * 8f);
-            }
+            // Unit unit = UnitHelper.GetMyUnitFromCurrentScene(self.Root().CurrentScene());
+            // if (unit != null)
+            // {
+            //     self.MainCamera.transform.position = math.lerp(self.MainCamera.transform.position, unit.Position + new float3(0, 10, 0), Time.deltaTime * 8f);
+            // }
         }
     }
 }

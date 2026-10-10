@@ -41,6 +41,10 @@ namespace ET
         {
             self.Insert(numericType, value, false);
         }
+        public static void SetNoEvent(this NumericComponent self, int numericType, float value)
+        {
+            self.Insert(numericType, (long)(value * 10000), false);
+        }
 
         public static void Insert(this NumericComponent self, int numericType, long value, bool isPublicEvent = true)
         {

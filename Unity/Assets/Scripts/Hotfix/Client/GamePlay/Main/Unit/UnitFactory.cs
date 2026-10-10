@@ -46,5 +46,31 @@ namespace ET.Client
             }
             return unit;
         }
+        
+        public static Unit Create(BattleComponent battle, UnitInfo unitInfo)
+        {
+	        UnitComponent unitComponent = battle.GetComponent<UnitComponent>();
+	        Unit unit = unitComponent.AddChildWithId<Unit, int>(unitInfo.UnitId, unitInfo.ConfigId);
+	        unitComponent.Add(unit);
+	        
+	        unit.Position = unitInfo.Position;
+	        unit.Forward = unitInfo.Forward;
+	        
+	        NumericComponent numericComponent = unit.AddComponent<NumericComponent>();
+
+	        foreach (var kv in unitInfo.KV)
+	        {
+		        numericComponent.Set(kv.Key, kv.Value);
+	        }
+
+	        unit.AddComponent<ObjectWait>();
+	        // if(unit.Type() == EUnitType.Player)
+			unit.AddComponent<SkillComponent, List<int>>(unitInfo.SkillInfo.Keys.ToList());
+
+	        // unit.AddComponent<PatrolComponent>();
+
+	        EventSystem.Instance.Publish(unit.Scene(), new AfterBattleUnitCreate() {Unit = unit});
+	        return unit;
+        }
     }
 }

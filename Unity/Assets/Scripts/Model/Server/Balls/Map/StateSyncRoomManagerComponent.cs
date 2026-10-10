@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Collections;
 
 namespace ET.Server
 {
@@ -6,9 +7,9 @@ namespace ET.Server
     public class StateSyncRoomManagerComponent : Entity, IAwake, IDestroy
     {
         public Dictionary<long, EntityRef<StateSyncRoom>> Rooms { get; set; }
-
+        //
         public long RoomIdGenerator { get; set; }
-
+        //
         public Dictionary<long, long> PlayerToRoom { get; set; }
     }
 }

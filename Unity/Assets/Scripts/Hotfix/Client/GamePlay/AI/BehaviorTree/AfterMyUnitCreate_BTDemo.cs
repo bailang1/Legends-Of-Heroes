@@ -19,22 +19,22 @@ namespace ET.Client
                 return;
             }
 
-            byte[] behaviorTreeBytes = await BTLoader.Instance.LoadBytesAsync("AITest");
-            if (behaviorTreeBytes == null || behaviorTreeBytes.Length == 0)
-            {
-                await ETTask.CompletedTask;
-                return;
-            }
-
-            BTComponent behaviorTreeComponent = unit.GetComponent<BTComponent>();
-            if (behaviorTreeComponent == null)
-            {
-                unit.AddComponent<BTComponent, byte[], string>(behaviorTreeBytes, "AITest");
-            }
-            else
-            {
-                behaviorTreeComponent.Reload(behaviorTreeBytes, "AITest");
-            }
+            // byte[] behaviorTreeBytes = await BTLoader.Instance.LoadBytesAsync("AITest");
+            // if (behaviorTreeBytes == null || behaviorTreeBytes.Length == 0)
+            // {
+            //     await ETTask.CompletedTask;
+            //     return;
+            // }
+            //
+            // BTComponent behaviorTreeComponent = unit.GetComponent<BTComponent>();
+            // if (behaviorTreeComponent == null)
+            // {
+            //     unit.AddComponent<BTComponent, byte[], string>(behaviorTreeBytes, "AITest");
+            // }
+            // else
+            // {
+            //     behaviorTreeComponent.Reload(behaviorTreeBytes, "AITest");
+            // }
 
             await ETTask.CompletedTask;
         }

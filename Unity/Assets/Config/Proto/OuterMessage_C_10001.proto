@@ -392,3 +392,17 @@ message G2C_Benchmark // ISessionResponse
 	int32 Error = 2;
 	string Message = 3;
 }
+
+// ResponseType G2C_StartBattle
+message C2G_StartBattle // ISessionRequest
+{
+	int32 RpcId = 1;
+	int32 monsterId = 2; // 房间密码（可选）
+}
+
+message G2C_StartBattle // ISessionResponse
+{
+	int32 RpcId = 1;
+	int32 Error = 2;
+	string Message = 3;
+}

@@ -1,4 +1,5 @@
 using System;
+using Unity.Mathematics;
 
 
 namespace ET.Client
@@ -125,5 +126,27 @@ namespace ET.Client
                 throw;
             }
         }
+        
+        //battle
+        public static async ETTask<G2C_StartBattle> StartBattleAsync(Fiber fiber, int monsterId)
+        {
+            try
+            {
+                C2G_StartBattle c2GStartBattle = C2G_StartBattle.Create();
+                c2GStartBattle.monsterId = monsterId;
+                var result = await fiber.Root.GetComponent<ClientSenderComponent>().Call(c2GStartBattle) as G2C_StartBattle;
+
+                // 发布战斗场景切换开始事件
+                EventSystem.Instance.Publish(fiber.Root, new BattleSceneChangeStart(){mapName = "Map3"});
+
+                return result;
+            }
+            catch (Exception e)
+            {
+                Log.Error(e);
+                return null;
+            }
+        }
+        
     }
 }

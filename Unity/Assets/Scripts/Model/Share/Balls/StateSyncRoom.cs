@@ -2,7 +2,8 @@ using System.Collections.Generic;
 
 namespace ET
 {
-    [ComponentOf]
+    // [ComponentOf]
+    [ChildOf]
     public class StateSyncRoom : Entity, IScene, IAwake, IFixedUpdate, IDestroy
     {
         public Fiber Fiber { get; set; }
@@ -27,5 +28,7 @@ namespace ET
 
         public bool IsReady { get; set; }
         public List<long> PlayerIds { get; set; }
+        public List<long> EnemyIds { get; set; }
+        
     }
 }

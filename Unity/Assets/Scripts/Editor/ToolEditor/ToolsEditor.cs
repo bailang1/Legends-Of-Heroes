@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Threading.Tasks;
 using UnityEditor;
+using YooAsset;
 
 namespace ET
 {
@@ -67,7 +69,7 @@ namespace ET
 #endif
         }
 
-        public static void Proto2CS()
+        public static async Task Proto2CS()
         {
 #if UNITY_EDITOR_OSX || UNITY_EDITOR_LINUX
             const string tools = "./Tool";

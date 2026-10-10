@@ -200,7 +200,7 @@ namespace ET.Debugger
 
         private void Update()
         {
-            m_FpsCounter.Update(Time.deltaTime, Time.unscaledDeltaTime);
+            m_FpsCounter?.Update(Time.deltaTime, Time.unscaledDeltaTime);
         }
 
         private void OnGUI()

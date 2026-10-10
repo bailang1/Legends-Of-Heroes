@@ -152,7 +152,7 @@ namespace ET
 
             if (GUILayout.Button("Proto2CS"))
             {
-                ToolsEditor.Proto2CS();
+                _ = ToolsEditor.Proto2CS();
                 return;
             }
 

@@ -7,8 +7,15 @@ namespace ET.Server
     {
         protected override async ETTask Run(Scene root, G2Room_StateSyncReconnect request, Room2G_StateSyncReconnect response)
         {
-            StateSyncRoom room = root.GetComponent<StateSyncRoom>();
-            response.StartTime = room.StartTime;
+            var room = root.GetComponent<StateSyncRoomManagerComponent>();
+            if (room.PlayerToRoom.TryGetValue(request.PlayerId, out var player))
+            {//在房间内战斗中
+                
+            }
+            else
+            {
+                
+            }
             // UnitComponent lsUnitComponent = room.World.GetComponent<UnitComponent>();
             // foreach (long playerId in room.PlayerIds)
             // {

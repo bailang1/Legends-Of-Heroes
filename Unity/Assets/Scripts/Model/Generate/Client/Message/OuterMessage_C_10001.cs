@@ -1828,6 +1828,72 @@ namespace ET
         }
     }
 
+    [MemoryPackable]
+    [Message(OuterMessage.C2G_StartBattle)]
+    [ResponseType(nameof(G2C_StartBattle))]
+    public partial class C2G_StartBattle : MessageObject, ISessionRequest
+    {
+        public static C2G_StartBattle Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(C2G_StartBattle), isFromPool) as C2G_StartBattle;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        /// <summary>
+        /// 房间密码（可选）
+        /// </summary>
+        [MemoryPackOrder(1)]
+        public int monsterId { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.monsterId = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
+    [MemoryPackable]
+    [Message(OuterMessage.G2C_StartBattle)]
+    public partial class G2C_StartBattle : MessageObject, ISessionResponse
+    {
+        public static G2C_StartBattle Create(bool isFromPool = false)
+        {
+            return ObjectPool.Instance.Fetch(typeof(G2C_StartBattle), isFromPool) as G2C_StartBattle;
+        }
+
+        [MemoryPackOrder(0)]
+        public int RpcId { get; set; }
+
+        [MemoryPackOrder(1)]
+        public int Error { get; set; }
+
+        [MemoryPackOrder(2)]
+        public string Message { get; set; }
+
+        public override void Dispose()
+        {
+            if (!this.IsFromPool)
+            {
+                return;
+            }
+
+            this.RpcId = default;
+            this.Error = default;
+            this.Message = default;
+
+            ObjectPool.Instance.Recycle(this);
+        }
+    }
+
     public static class OuterMessage
     {
         public const ushort HttpGetRouterResponse = 10002;
@@ -1883,5 +1949,7 @@ namespace ET
         public const ushort M2C_TransferMap = 10052;
         public const ushort C2G_Benchmark = 10053;
         public const ushort G2C_Benchmark = 10054;
+        public const ushort C2G_StartBattle = 10055;
+        public const ushort G2C_StartBattle = 10056;
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace ET
 {
@@ -15,10 +16,12 @@ namespace ET
                 string app = "bash";
                 string splitChar = ":";
                 string arguments = "-c";
+                var en = System.Text.UTF8Encoding.UTF8;
 #elif UNITY_EDITOR_WIN
                 string app = "cmd.exe";
                 string splitChar = ";";
-                string arguments = "/c";
+                string arguments = "/c chcp 437&&";
+                var en = System.Text.Encoding.GetEncoding("gb2312");
 #endif
                 ProcessStartInfo start = new ProcessStartInfo(app);
 
@@ -30,6 +33,8 @@ namespace ET
                     }
                 }
 
+                start.StandardErrorEncoding = en;
+                start.StandardOutputEncoding = en;
                 process.StartInfo = start;
                 start.Arguments = arguments + " \"" + cmd + "\"";
                 start.CreateNoWindow = true;

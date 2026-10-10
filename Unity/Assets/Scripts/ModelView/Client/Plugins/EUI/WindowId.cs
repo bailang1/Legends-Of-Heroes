@@ -19,5 +19,6 @@ namespace ET.Client
         WindowID_CreateRoom = 1000,
         WindowID_RoomList = 1001,
     	WindowID_Main,
+		WindowID_Loading,
 	}
 }
