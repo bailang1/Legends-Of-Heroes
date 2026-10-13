@@ -1,0 +1,56 @@
+[Licensing::Module] Trying to connect to existing licensing client channel...
+Built from '6000.3/staging' branch; Version is '6000.3.25f1 (e1dba0a9aba4) revision 14801824'; Using compiler version '194234433'; Build Type 'Release'
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-win" at "2026-10-10T08:50:25.5873316Z"
+OS: 'Windows 11  (10.0.26200) Professional' Language: 'zh' Physical Memory: 64900 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
+System  architecture: x64
+Process architecture: x64
+Date: 2026-10-10T08:50:25Z
+[Licensing::Client] Code 10 while verifying Licensing Client signature (process Id: 4028, path: "D:/Program Files/Unity Hub/UnityLicensingClient_V1/Unity.Licensing.Client.exe")
+[Licensing::Module] LicensingClient has failed validation; ignoring
+[Licensing::Client] Handshaking with LicensingClient:
+  Version:                 1.18.3+d7ffd15
+  Session Id:              0bb74af4ec4a4807a9a2fdae7cdff389
+  Correlation Id:          3506fa8fdfcea95a988ae8996ea3d4f6
+  External correlation Id: 8257062565542704556
+  Machine Id:              qsOiv+SmR5lDxdfpnhY4B3HiYPs=
+[Licensing::Module] Successfully connected to LicensingClient on channel: "LicenseClient-win" (connect: 0.00s, validation: 0.00s, handshake: 0.03s)
+[Licensing::IpcConnector] Successfully connected to: "LicenseClient-win-notifications" at "2026-10-10T08:50:25.6162161Z"
+[Licensing::Module] Error: Access token is unavailable; failed to update
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-XVN8-PJRZ-BBHR-UGV2-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-10-20T02:04:45Z
+[Licensing::Module] License group:
+  Id: 20066222224916-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Client] Successfully updated license, isAsync: True, time: 0.00
+[Licensing::Client] Successfully resolved entitlement details
+[Licensing::Module] License group:
+  Id: F4-XVN8-PJRZ-BBHR-UGV2-XXXX
+  Product: Unity Personal
+  Type: ULF
+  Expiration: 2026-10-20T02:04:45Z
+[Licensing::Module] License group:
+  Id: 20066222224916-UnityPersXXXX
+  Product: Unity Personal
+  Type: Assigned
+  Expiration: Unlimited
+[Licensing::Module] Licensing Background thread has ended after 0.04s
+
+COMMAND LINE ARGUMENTS:
+D:\Unity\unity6000.3.25f1\Editor\Unity.exe
+-projectPath
+E:\Work\LOH
+-executeMethod
+UnityEditor.PlaymodeStateChange.EnterPlayMode
+-quit
+-batchmode
+-logFile
+E:\Work\LOH\UnityPlayMode.log
+Couldn't set project path to: E:/Work/LOH/E:/Work/LOH
+Exiting without the bug reporter. Application will terminate with return code 1
