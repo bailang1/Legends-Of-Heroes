@@ -2,7 +2,7 @@
 
 namespace ET
 {
-    public interface ITypeDrawer
+    public partial interface ITypeDrawer
     {
         bool HandlesType(Type type);
 
