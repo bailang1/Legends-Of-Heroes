@@ -75,7 +75,8 @@ namespace ET.Server
                 {
                     Unit unit = unitComponent.AddChildWithId<Unit, int>(id, 1001);
                     // unit.AddComponent<PlayerMoveComponent>();
-			
+                    unit.AddComponent<BattleUnitComponent, EBattleCamp>(EBattleCamp.Hero);
+
                     NumericComponent numericComponent = unit.AddComponent<NumericComponent>();
                     numericComponent.SetNoEvent(NumericType.Speed, 5); // 速度是5米每秒
                     numericComponent.SetNoEvent(NumericType.MaxHp, unit.Config().Weight);
@@ -90,7 +91,8 @@ namespace ET.Server
                 {
                     Unit unit = unitComponent.AddChildWithId<Unit, int>(id, 1001);
                     // unit.AddComponent<PlayerMoveComponent>();
-			
+                    unit.AddComponent<BattleUnitComponent, EBattleCamp>(EBattleCamp.Enemy);
+
                     NumericComponent numericComponent = unit.AddComponent<NumericComponent>();
                     numericComponent.SetNoEvent(NumericType.Speed, 5f); // 速度是5米每秒
                     // numericComponent.Set(NumericType.AOI, 15000); // 视野15米

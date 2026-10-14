@@ -1,0 +1,28 @@
+﻿syntax = "proto3";
+package ET;
+
+///////////////////////////////// Battle Start ///////////////////////////////////
+
+/// 战斗回合开始：同步本回合的攻击序列（出手顺序）
+message Room2C_BattleRoundStart // IMessage
+{
+	int32 RoundIndex = 1;
+	repeated int64 AttackSequence = 2;
+}
+
+/// 战斗出手：同步当前出手的单位
+message Room2C_BattleTurn // IMessage
+{
+	int32 RoundIndex = 1;
+	int64 UnitId = 2;
+}
+
+/// 战斗结束：同步胜负结果
+message Room2C_BattleEnd // IMessage
+{
+	int32 RoundIndex = 1;
+	bool HeroAllDead = 2;
+	bool EnemyAllDead = 3;
+}
+
+///////////////////////////////// Battle End ///////////////////////////////////

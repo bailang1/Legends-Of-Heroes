@@ -46,7 +46,7 @@ namespace ET
             self.Insert(numericType, (long)(value * 10000), false);
         }
 
-        public static void Insert(this NumericComponent self, int numericType, long value, bool isPublicEvent = true)
+        public static void Insert(this NumericComponent self, int numericType, long value, bool isPublicEvent = false)
         {
             long oldValue = self.GetByKey(numericType);
             if (oldValue == value)
@@ -64,7 +64,9 @@ namespace ET
 
             if (isPublicEvent)
             {
-                EventSystem.Instance.Publish(self.Scene(),
+                // 使用实体所属的 IScene 而不是 Scene()：房间(StateSyncRoom)等 IScene 实现并非 Scene 子类，
+                // Scene() 会返回 null，导致 Publish 空引用
+                EventSystem.Instance.Publish(self.IScene,
                     new NumbericChange() { Unit = self.GetParent<Unit>(), New = value, Old = oldValue, NumericType = numericType });
             }
         }

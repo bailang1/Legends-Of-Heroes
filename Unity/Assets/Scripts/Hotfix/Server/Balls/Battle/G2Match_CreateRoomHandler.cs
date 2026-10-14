@@ -26,6 +26,9 @@ namespace ET.Server
             // UnitFactory.Create2(battleComponent, playerId, EUnitType.RoomPlayer);
             battleComponent.InitFriend(new List<long>(){playerId});//TEST MONSTER id
             battleComponent.InitEnemy(request.MaxPlayers);
+
+            // 构建攻击序列并开始回合制战斗
+            battleComponent.StartBattle();
             
             response.Error = ErrorCode.ERR_Success;
             response.Message = "Create room success";

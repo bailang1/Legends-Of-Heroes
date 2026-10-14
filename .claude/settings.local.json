@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__acp__Write",
+      "mcp__acp__Edit",
+      "mcp__unityMCP__manage_scene",
+      "Bash(ls:*)",
+      "Bash(grep:*)",
+      "Bash(powershell -NoProfile -Command \"dotnet Tool.dll --AppType=Proto2CS\")",
+      "Bash(for f in \"BattleOuter_C_13001.cs\" \"BattleMessageHelper.cs\" \"Room2C_BattleRoundStartHandler.cs\" \"Room2C_BattleTurnHandler.cs\" \"Room2C_BattleEndHandler.cs\")",
+      "Bash(do echo:*)",
+      "Bash(done)",
+      "Bash(powershell -NoProfile -Command \"dotnet build ET.sln -clp:ErrorsOnly -v m\")",
+      "Bash(powershell -NoProfile -Command \"dotnet build ET.sln -v m\")",
+      "Bash(powershell -NoProfile -Command \"dotnet build ET.sln --no-incremental -v m\")"
+    ]
+  }
+}
